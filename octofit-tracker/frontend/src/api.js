@@ -1,6 +1,20 @@
 // API service for communicating with the OctoFit Tracker backend
 
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000/api';
+// Get the base URL for the backend API
+const getApiBaseUrl = () => {
+  // Check if we're in a GitHub Codespaces environment
+  if (window.location.hostname.includes('github.dev') || window.location.hostname.includes('app.github.dev')) {
+    // Extract the hostname and replace the frontend port (3000) with backend port (8000)
+    const hostname = window.location.hostname.replace('-3000.', '-8000.');
+    const protocol = window.location.protocol;
+    return `${protocol}//${hostname}/api`;
+  }
+  
+  // Default to localhost for local development or use environment variable
+  return process.env.REACT_APP_API_URL || 'http://localhost:8000/api';
+};
+
+const API_BASE_URL = getApiBaseUrl();
 
 // Helper function to get the authorization token
 const getAuthToken = () => {
