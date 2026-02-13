@@ -24,6 +24,7 @@ from tracker.views import (
     UserProfileViewSet, ActivityTypeViewSet, ActivityViewSet,
     TeamViewSet, LeaderboardViewSet, AchievementViewSet, ChallengeViewSet
 )
+from tracker.views_registration import DjangoMongoDBRegisterView
 
 # Create router and register viewsets
 router = DefaultRouter()
@@ -63,7 +64,7 @@ urlpatterns = [
     path('api/', api_root, name='api-root'),
     path('api/', include(router.urls)),
     path('api/auth/', include('dj_rest_auth.urls')),
-    path('api/auth/registration/', include('dj_rest_auth.registration.urls')),
+    path('api/auth/registration/', DjangoMongoDBRegisterView.as_view(), name='rest_register'),
     path('api-auth/', include('rest_framework.urls')),
 ]
 

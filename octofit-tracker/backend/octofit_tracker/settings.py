@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',  # Required for django-allauth
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
@@ -47,8 +48,12 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'dj_rest_auth.registration',  # Required for registration
     'tracker',
 ]
+
+# Django sites framework configuration (required for django-allauth)
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -84,6 +89,7 @@ WSGI_APPLICATION = 'octofit_tracker.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
+# Using djongo as the database backend for MongoDB integration
 
 DATABASES = {
     'default': {
@@ -162,5 +168,14 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
+
+# Allauth adapter for Djongo compatibility
+ACCOUNT_ADAPTER = 'tracker.allauth_adapter.DjangoAllauthAdapter'
+
+# Allauth settings
+ACCOUNT_AUTHENTICATION_METHOD = 'username'
+ACCOUNT_EMAIL_REQUIRED = False  # Changed to False to avoid ObjectId issues
+ACCOUNT_EMAIL_VERIFICATION = 'none'  # Disable email verification for now
+ACCOUNT_USERNAME_REQUIRED = True
 
 AUTH_USER_MODEL = 'auth.User'
