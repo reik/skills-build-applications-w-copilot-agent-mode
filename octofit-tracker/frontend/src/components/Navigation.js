@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { clearAuthToken } from '../api';
 import './Navigation.css';
+import logo from '../octofitapp-small.png';
 
 function Navigation({ isAuthenticated, setIsAuthenticated }) {
   const navigate = useNavigate();
@@ -16,7 +17,8 @@ function Navigation({ isAuthenticated, setIsAuthenticated }) {
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container">
         <Link className="navbar-brand fw-bold" to="/">
-          🐙 OctoFit Tracker
+          <img src={logo} alt="OctoFit Logo" className="navbar-logo" />
+          OctoFit Tracker
         </Link>
         <button
           className="navbar-toggler"

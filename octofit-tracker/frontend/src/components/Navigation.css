@@ -1,18 +1,89 @@
+/* Navigation styling with fitness theme */
+.navbar {
+  background: linear-gradient(135deg, #004E89 0%, #0066B3 100%) !important;
+  box-shadow: 0 4px 12px rgba(0, 78, 137, 0.3);
+  padding: 1rem 2rem !important;
+}
+
 .navbar-brand {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   letter-spacing: 0.5px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
+  color: #FF6B35 !important;
+}
+
+.navbar-logo {
+  height: 50px;
+  margin-right: 12px;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
 }
 
 .nav-link {
-  margin-left: 1rem;
-  transition: color 0.3s ease;
+  margin-left: 1.5rem;
+  transition: all 0.3s ease;
+  color: #FFFFFF !important;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: 0;
+  left: 50%;
+  background-color: #FF6B35;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
 }
 
 .nav-link:hover {
-  color: #0dcaf0 !important;
+  color: #FF6B35 !important;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.btn-outline-light {
+  border: 2px solid #FFFFFF;
+  color: #FFFFFF;
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
 }
 
 .btn-outline-light:hover {
-  background-color: #0dcaf0;
-  border-color: #0dcaf0;
+  background-color: #FF6B35;
+  border-color: #FF6B35;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 107, 53, 0.3);
+}
+
+/* Make navbar responsive */
+@media (max-width: 768px) {
+  .navbar-logo {
+    height: 40px;
+  }
+  
+  .navbar-brand {
+    font-size: 1.3rem;
+  }
+  
+  .nav-link {
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
 }
