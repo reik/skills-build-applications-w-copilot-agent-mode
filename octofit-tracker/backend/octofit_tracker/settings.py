@@ -89,17 +89,14 @@ WSGI_APPLICATION = 'octofit_tracker.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-# Using djongo as the database backend for MongoDB integration
+# Using SQLite as the default database backend
+# djongo MongoDB backend available as alternate for octofit_db
+# Note: djongo is used for MongoDB integration
 
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'octofit_db',
-        'ENFORCE_SCHEMA_VALIDATION': False,
-        'CLIENT': {
-            'host': '127.0.0.1',
-            'port': 27017,
-        }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 

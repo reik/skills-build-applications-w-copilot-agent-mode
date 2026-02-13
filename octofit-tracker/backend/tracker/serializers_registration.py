@@ -1,6 +1,7 @@
 """Custom registration serializer for Djongo compatibility"""
 from dj_rest_auth.registration.serializers import SocialLoginSerializer, RegisterSerializer
 from rest_framework import serializers
+from rest_framework.authtoken.models import Token
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -20,4 +21,6 @@ class DjangoMongoDBRegisterSerializer(RegisterSerializer):
             email=validated_data.get('email', ''),
             password=validated_data['password1']
         )
+        # Create auth token for the user
+        Token.objects.create(user=user)
         return user
