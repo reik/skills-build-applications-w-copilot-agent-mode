@@ -7,7 +7,7 @@ from django.core.management.base import BaseCommand
 
 
 class Command(BaseCommand):
-    help = "Populate the OctoFit Tracker database with test data."
+    help = "Populate the octofit_db database with test data"
 
     def handle(self, *args, **options):
         # Ensure backend directory is on sys.path so populate_db can be imported.
