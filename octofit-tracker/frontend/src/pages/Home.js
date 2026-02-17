@@ -12,7 +12,8 @@ function Home() {
         <div className="container">
           <h1 className="display-3 fw-bold mb-4">🐙 Welcome to OctoFit Tracker</h1>
           <p className="lead mb-4">
-            Your personal fitness companion for tracking activities, competing with friends, and achieving your health goals!
+            Your personal fitness companion for tracking activities, competing with friends, and achieving your health
+            goals!
           </p>
           <div className="hero-buttons">
             {isAuthenticated ? (

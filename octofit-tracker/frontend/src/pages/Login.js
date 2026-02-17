@@ -62,11 +62,7 @@ function Login({ setIsAuthenticated }) {
                     required
                   />
                 </div>
-                <button
-                  type="submit"
-                  className="btn btn-primary w-100"
-                  disabled={loading}
-                >
+                <button type="submit" className="btn btn-primary w-100" disabled={loading}>
                   {loading ? 'Logging in...' : 'Login'}
                 </button>
               </form>

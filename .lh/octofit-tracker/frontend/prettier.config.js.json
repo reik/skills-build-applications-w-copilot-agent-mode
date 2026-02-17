@@ -1,0 +1,26 @@
+{
+    "sourceFile": "octofit-tracker/frontend/prettier.config.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1771347859052,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1771347870094,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n module.exports = {\n   semi: true,\n-  singleQuote: false,\n+  singleQuote: true,\n   trailingComma: \"es5\",\n   tabWidth: 2,\n   printWidth: 80,\n };\n"
+                },
+                {
+                    "date": 1771347969183,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,6 +2,6 @@\n   semi: true,\n   singleQuote: true,\n   trailingComma: \"es5\",\n   tabWidth: 2,\n-  printWidth: 80,\n+  printWidth: 120,\n };\n"
+                }
+            ],
+            "date": 1771347859052,
+            "name": "Commit-0",
+            "content": "module.exports = {\n  semi: true,\n  singleQuote: false,\n  trailingComma: \"es5\",\n  tabWidth: 2,\n  printWidth: 80,\n};\n"
+        }
+    ]
+}

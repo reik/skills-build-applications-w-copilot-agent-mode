@@ -49,16 +49,18 @@ function Teams() {
     }
   };
 
-  if (loading) return <div className="container mt-5"><p>Loading...</p></div>;
+  if (loading)
+    return (
+      <div className="container mt-5">
+        <p>Loading...</p>
+      </div>
+    );
 
   return (
     <div className="container mt-5">
       <div className="d-flex justify-content-between align-items-center mb-4">
         <h1>Teams</h1>
-        <button
-          className="btn btn-primary"
-          onClick={() => setShowForm(!showForm)}
-        >
+        <button className="btn btn-primary" onClick={() => setShowForm(!showForm)}>
           {showForm ? 'Cancel' : 'Create Team'}
         </button>
       </div>
@@ -71,8 +73,11 @@ function Teams() {
             <h5 className="card-title">Create New Team</h5>
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
-                <label className="form-label">Team Name</label>
+                <label htmlFor="teamName" className="form-label">
+                  Team Name
+                </label>
                 <input
+                  id="teamName"
                   type="text"
                   className="form-control"
                   name="name"
@@ -82,8 +87,11 @@ function Teams() {
                 />
               </div>
               <div className="mb-3">
-                <label className="form-label">Description</label>
+                <label htmlFor="teamDescription" className="form-label">
+                  Description
+                </label>
                 <textarea
+                  id="teamDescription"
                   className="form-control"
                   name="description"
                   value={formData.description}
@@ -121,9 +129,7 @@ function Teams() {
                       <p className="h5 mb-0">{team.total_points}</p>
                     </div>
                   </div>
-                  <button className="btn btn-sm btn-outline-primary w-100 mt-3">
-                    View Team
-                  </button>
+                  <button className="btn btn-sm btn-outline-primary w-100 mt-3">View Team</button>
                 </div>
               </div>
             </div>

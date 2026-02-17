@@ -56,8 +56,18 @@ function Profile() {
     }
   };
 
-  if (loading) return <div className="container mt-5"><p>Loading...</p></div>;
-  if (error) return <div className="container mt-5"><div className="alert alert-danger">{error}</div></div>;
+  if (loading)
+    return (
+      <div className="container mt-5">
+        <p>Loading...</p>
+      </div>
+    );
+  if (error)
+    return (
+      <div className="container mt-5">
+        <div className="alert alert-danger">{error}</div>
+      </div>
+    );
 
   return (
     <div className="container mt-5">
@@ -68,10 +78,7 @@ function Profile() {
           <div className="card mb-4">
             <div className="card-header d-flex justify-content-between align-items-center">
               <h5 className="mb-0">Profile Information</h5>
-              <button
-                className="btn btn-sm btn-outline-primary"
-                onClick={() => setEditMode(!editMode)}
-              >
+              <button className="btn btn-sm btn-outline-primary" onClick={() => setEditMode(!editMode)}>
                 {editMode ? 'Cancel' : 'Edit'}
               </button>
             </div>
@@ -79,8 +86,11 @@ function Profile() {
               {editMode ? (
                 <form onSubmit={handleSubmit}>
                   <div className="mb-3">
-                    <label className="form-label">Bio</label>
+                    <label htmlFor="bio" className="form-label">
+                      Bio
+                    </label>
                     <textarea
+                      id="bio"
                       className="form-control"
                       name="bio"
                       value={formData.bio}
@@ -89,8 +99,11 @@ function Profile() {
                     ></textarea>
                   </div>
                   <div className="mb-3">
-                    <label className="form-label">Fitness Level</label>
+                    <label htmlFor="fitnessLevel" className="form-label">
+                      Fitness Level
+                    </label>
                     <select
+                      id="fitnessLevel"
                       className="form-select"
                       name="fitness_level"
                       value={formData.fitness_level}
@@ -118,16 +131,14 @@ function Profile() {
                     <strong>Bio:</strong> {profile?.bio || 'No bio added yet'}
                   </p>
                   <p>
-                    <strong>Fitness Level:</strong>{' '}
-                    <span className="badge bg-info">{profile?.fitness_level}</span>
+                    <strong>Fitness Level:</strong> <span className="badge bg-info">{profile?.fitness_level}</span>
                   </p>
                   <p>
                     <strong>Total Points:</strong>{' '}
                     <span className="badge bg-success fs-6">{profile?.total_points}</span>
                   </p>
                   <p>
-                    <strong>Member Since:</strong>{' '}
-                    {new Date(profile?.created_at).toLocaleDateString()}
+                    <strong>Member Since:</strong> {new Date(profile?.created_at).toLocaleDateString()}
                   </p>
                 </>
               )}

@@ -34,7 +34,12 @@ function Challenges() {
     }
   };
 
-  if (loading) return <div className="container mt-5"><p>Loading...</p></div>;
+  if (loading)
+    return (
+      <div className="container mt-5">
+        <p>Loading...</p>
+      </div>
+    );
 
   return (
     <div className="container mt-5">
@@ -54,9 +59,7 @@ function Challenges() {
                 <div className="card-body">
                   <div className="d-flex justify-content-between align-items-start mb-2">
                     <h5 className="card-title">{challenge.name}</h5>
-                    {challenge.is_active && (
-                      <span className="badge bg-success">Active</span>
-                    )}
+                    {challenge.is_active && <span className="badge bg-success">Active</span>}
                   </div>
                   <p className="card-text">{challenge.description}</p>
                   <div className="row text-center mb-3">
@@ -76,10 +79,7 @@ function Challenges() {
                     </small>
                   </div>
                   {challenge.is_active && (
-                    <button
-                      className="btn btn-primary w-100"
-                      onClick={() => handleJoinChallenge(challenge.id)}
-                    >
+                    <button className="btn btn-primary w-100" onClick={() => handleJoinChallenge(challenge.id)}>
                       Join Challenge
                     </button>
                   )}

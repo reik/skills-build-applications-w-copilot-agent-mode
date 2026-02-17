@@ -66,10 +66,7 @@ function Navigation({ isAuthenticated, setIsAuthenticated }) {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <button
-                    className="btn btn-outline-light ms-2"
-                    onClick={handleLogout}
-                  >
+                  <button className="btn btn-outline-light ms-2" onClick={handleLogout}>
                     Logout
                   </button>
                 </li>

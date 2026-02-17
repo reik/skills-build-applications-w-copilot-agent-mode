@@ -47,6 +47,7 @@ function Activities() {
     e.preventDefault();
     try {
       await activityAPI.createActivity(formData);
+      setError(''); // Reset error state after successful submission
       setFormData({
         activity_type_id: '',
         distance_or_duration: '',
@@ -64,20 +65,21 @@ function Activities() {
     }
   };
 
-  if (loading) return <div className="container mt-5"><p>Loading...</p></div>;
+  if (loading)
+    return (
+      <div className="container mt-5">
+        <p>Loading...</p>
+      </div>
+    );
 
   return (
     <div className="container mt-5">
       <div className="d-flex justify-content-between align-items-center mb-4">
         <h1>Activities</h1>
-        <button
-          className="btn btn-primary"
-          onClick={() => setShowForm(!showForm)}
-        >
+        <button className="btn btn-primary" onClick={() => setShowForm(!showForm)}>
           {showForm ? 'Cancel' : 'Log Activity'}
         </button>
       </div>
-
       {error && <div className="alert alert-danger">{error}</div>}
 
       {showForm && (
@@ -86,8 +88,11 @@ function Activities() {
             <h5 className="card-title">Log New Activity</h5>
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
-                <label className="form-label">Activity Type</label>
+                <label htmlFor="activityType" className="form-label">
+                  Activity Type
+                </label>
                 <select
+                  id="activityType"
                   className="form-select"
                   name="activity_type_id"
                   value={formData.activity_type_id}
@@ -104,8 +109,11 @@ function Activities() {
               </div>
               <div className="row">
                 <div className="col-md-6 mb-3">
-                  <label className="form-label">Duration/Distance</label>
+                  <label htmlFor="durationDistance" className="form-label">
+                    Duration/Distance
+                  </label>
                   <input
+                    id="durationDistance"
                     type="number"
                     className="form-control"
                     name="distance_or_duration"
@@ -115,8 +123,11 @@ function Activities() {
                   />
                 </div>
                 <div className="col-md-6 mb-3">
-                  <label className="form-label">Calories Burned</label>
+                  <label htmlFor="caloriesBurned" className="form-label">
+                    Calories Burned
+                  </label>
                   <input
+                    id="caloriesBurned"
                     type="number"
                     className="form-control"
                     name="calories_burned"
@@ -127,8 +138,11 @@ function Activities() {
               </div>
               <div className="row">
                 <div className="col-md-6 mb-3">
-                  <label className="form-label">Points Earned</label>
+                  <label htmlFor="pointsEarned" className="form-label">
+                    Points Earned
+                  </label>
                   <input
+                    id="pointsEarned"
                     type="number"
                     className="form-control"
                     name="points_earned"
@@ -139,8 +153,11 @@ function Activities() {
                 </div>
               </div>
               <div className="mb-3">
-                <label className="form-label">Description</label>
+                <label htmlFor="description" className="form-label">
+                  Description
+                </label>
                 <textarea
+                  id="description"
                   className="form-control"
                   name="description"
                   value={formData.description}
@@ -155,7 +172,6 @@ function Activities() {
           </div>
         </div>
       )}
-
       <div className="card">
         <div className="card-body">
           {activities.length === 0 ? (

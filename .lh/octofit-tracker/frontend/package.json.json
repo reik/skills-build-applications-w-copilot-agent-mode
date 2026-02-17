@@ -1,0 +1,30 @@
+{
+    "sourceFile": "octofit-tracker/frontend/package.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1771303986044,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1771347670241,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,10 @@\n   \"eslintConfig\": {\n     \"extends\": [\n       \"react-app\",\n       \"react-app/jest\",\n-      \"plugin:jsx-a11y/recommended\"\n+      \"plugin:jsx-a11y/recommended\",\n+      \"prettier\"\n     ]\n   },\n   \"browserslist\": {\n     \"production\": [\n@@ -39,7 +40,9 @@\n       \"last 1 safari version\"\n     ]\n   },\n   \"devDependencies\": {\n-    \"eslint-plugin-jsx-a11y\": \"^6.10.2\"\n+    \"eslint-config-prettier\": \"^10.1.8\",\n+    \"eslint-plugin-jsx-a11y\": \"^6.10.2\",\n+    \"prettier\": \"^3.8.1\"\n   }\n }\n"
+                },
+                {
+                    "date": 1771347717324,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,10 @@\n   \"scripts\": {\n     \"start\": \"react-scripts start\",\n     \"build\": \"react-scripts build\",\n     \"test\": \"react-scripts test\",\n-    \"eject\": \"react-scripts eject\"\n+    \"eject\": \"react-scripts eject\",\n+    \"format\": \"prettier --write \\\\\"src/**/*.js\\\\\"\"\n   },\n   \"eslintConfig\": {\n     \"extends\": [\n       \"react-app\",\n"
+                },
+                {
+                    "date": 1771347737606,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n     \"start\": \"react-scripts start\",\n     \"build\": \"react-scripts build\",\n     \"test\": \"react-scripts test\",\n     \"eject\": \"react-scripts eject\",\n-    \"format\": \"prettier --write \\\\\"src/**/*.js\\\\\"\"\n+    \"format\": \"prettier --write src/**/*.js\"\n   },\n   \"eslintConfig\": {\n     \"extends\": [\n       \"react-app\",\n"
+                }
+            ],
+            "date": 1771303986044,
+            "name": "Commit-0",
+            "content": "{\n  \"name\": \"frontend\",\n  \"version\": \"0.1.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"@testing-library/dom\": \"^10.4.1\",\n    \"@testing-library/jest-dom\": \"^6.9.1\",\n    \"@testing-library/react\": \"^16.3.2\",\n    \"@testing-library/user-event\": \"^13.5.0\",\n    \"bootstrap\": \"^5.3.8\",\n    \"react\": \"^19.2.4\",\n    \"react-dom\": \"^19.2.4\",\n    \"react-router-dom\": \"^7.13.0\",\n    \"react-scripts\": \"5.0.1\",\n    \"web-vitals\": \"^2.1.4\"\n  },\n  \"scripts\": {\n    \"start\": \"react-scripts start\",\n    \"build\": \"react-scripts build\",\n    \"test\": \"react-scripts test\",\n    \"eject\": \"react-scripts eject\"\n  },\n  \"eslintConfig\": {\n    \"extends\": [\n      \"react-app\",\n      \"react-app/jest\",\n      \"plugin:jsx-a11y/recommended\"\n    ]\n  },\n  \"browserslist\": {\n    \"production\": [\n      \">0.2%\",\n      \"not dead\",\n      \"not op_mini all\"\n    ],\n    \"development\": [\n      \"last 1 chrome version\",\n      \"last 1 firefox version\",\n      \"last 1 safari version\"\n    ]\n  },\n  \"devDependencies\": {\n    \"eslint-plugin-jsx-a11y\": \"^6.10.2\"\n  }\n}\n"
+        }
+    ]
+}

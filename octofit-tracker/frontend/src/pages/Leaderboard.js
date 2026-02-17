@@ -25,7 +25,12 @@ function Leaderboard() {
     fetchLeaderboard();
   }, [leaderboardType, period]);
 
-  if (loading) return <div className="container mt-5"><p>Loading...</p></div>;
+  if (loading)
+    return (
+      <div className="container mt-5">
+        <p>Loading...</p>
+      </div>
+    );
 
   return (
     <div className="container mt-5">
@@ -33,8 +38,11 @@ function Leaderboard() {
 
       <div className="row mb-4">
         <div className="col-md-6">
-          <label className="form-label">Type</label>
+          <label htmlFor="leaderboardType" className="form-label">
+            Type
+          </label>
           <select
+            id="leaderboardType"
             className="form-select"
             value={leaderboardType}
             onChange={(e) => setLeaderboardType(e.target.value)}
@@ -44,12 +52,10 @@ function Leaderboard() {
           </select>
         </div>
         <div className="col-md-6">
-          <label className="form-label">Period</label>
-          <select
-            className="form-select"
-            value={period}
-            onChange={(e) => setPeriod(e.target.value)}
-          >
+          <label htmlFor="period" className="form-label">
+            Period
+          </label>
+          <select id="period" className="form-select" value={period} onChange={(e) => setPeriod(e.target.value)}>
             <option value="daily">Daily</option>
             <option value="weekly">Weekly</option>
             <option value="monthly">Monthly</option>
@@ -80,9 +86,7 @@ function Leaderboard() {
                       <td>
                         <span className="badge bg-primary">{entry.rank}</span>
                       </td>
-                      <td>
-                        {entry.user ? entry.user.username : entry.team?.name}
-                      </td>
+                      <td>{entry.user ? entry.user.username : entry.team?.name}</td>
                       <td>
                         <span className="badge bg-success fs-6">{entry.points}</span>
                       </td>

@@ -30,13 +30,23 @@ function Dashboard() {
     fetchData();
   }, []);
 
-  if (loading) return <div className="container mt-5"><p>Loading...</p></div>;
-  if (error) return <div className="container mt-5"><div className="alert alert-danger">{error}</div></div>;
+  if (loading)
+    return (
+      <div className="container mt-5">
+        <p>Loading...</p>
+      </div>
+    );
+  if (error)
+    return (
+      <div className="container mt-5">
+        <div className="alert alert-danger">{error}</div>
+      </div>
+    );
 
   return (
     <div className="container mt-5">
       <h1 className="mb-4">Dashboard</h1>
-      
+
       <div className="row mb-4">
         <div className="col-md-3">
           <div className="card text-center">
@@ -96,8 +106,12 @@ function Dashboard() {
                       {recentActivities.map((activity) => (
                         <tr key={activity.id}>
                           <td>{activity.activity_type?.name}</td>
-                          <td>{activity.distance_or_duration} {activity.activity_type?.unit}</td>
-                          <td><span className="badge bg-success">{activity.points_earned}</span></td>
+                          <td>
+                            {activity.distance_or_duration} {activity.activity_type?.unit}
+                          </td>
+                          <td>
+                            <span className="badge bg-success">{activity.points_earned}</span>
+                          </td>
                           <td>{new Date(activity.logged_at).toLocaleDateString()}</td>
                         </tr>
                       ))}
@@ -114,10 +128,18 @@ function Dashboard() {
               <h5 className="mb-0">User Info</h5>
             </div>
             <div className="card-body">
-              <p><strong>Username:</strong> {profile?.user?.username}</p>
-              <p><strong>Email:</strong> {profile?.user?.email}</p>
-              <p><strong>Fitness Level:</strong> {profile?.fitness_level}</p>
-              <p><strong>Member Since:</strong> {new Date(profile?.created_at).toLocaleDateString()}</p>
+              <p>
+                <strong>Username:</strong> {profile?.user?.username}
+              </p>
+              <p>
+                <strong>Email:</strong> {profile?.user?.email}
+              </p>
+              <p>
+                <strong>Fitness Level:</strong> {profile?.fitness_level}
+              </p>
+              <p>
+                <strong>Member Since:</strong> {new Date(profile?.created_at).toLocaleDateString()}
+              </p>
             </div>
           </div>
         </div>

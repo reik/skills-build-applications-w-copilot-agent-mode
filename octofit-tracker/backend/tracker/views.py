@@ -21,18 +21,31 @@ class UserProfileViewSet(viewsets.ModelViewSet):
     """ViewSet for User Profiles"""
     queryset = UserProfile.objects.all()
     serializer_class = UserProfileSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    
-    def get_object(self):
-        """Get profile for current user"""
-        return self.request.user.profile
-    
-    @action(detail=False, methods=['get'])
+    permission_classes = [permissions.IsAuthenticated]
+
+    @action(detail=False, methods=['get', 'put', 'patch'], url_path='me', url_name='profile-me')
     def me(self, request):
-        """Get current user's profile"""
+        """Get, update or partially update current user's profile"""
         profile = request.user.profile
-        serializer = self.get_serializer(profile)
-        return Response(serializer.data)
+        if request.method == 'GET':
+            serializer = self.get_serializer(profile)
+            return Response(serializer.data)
+        elif request.method in ['PUT', 'PATCH']:
+            partial = request.method == 'PATCH'
+            serializer = self.get_serializer(profile, data=request.data, partial=partial)
+            serializer.is_valid(raise_exception=True)
+            serializer.save()
+            return Response(serializer.data)
+        return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+    def get_object(self):
+        """
+        Override get_object to handle 'me' for detail view,
+        or fall back to default pk lookup.
+        """
+        if self.kwargs.get('pk') == 'me':
+            return self.request.user.profile
+        return super().get_object()
     
     @action(detail=False, methods=['get'])
     def leaderboard(self, request):
