@@ -1,0 +1,8 @@
+{
+    "local-history.browser.descending": false,
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#580844",
+        "titleBar.activeBackground": "#7B0B5F",
+        "titleBar.activeForeground": "#FFFBFE"
+    }
+}
